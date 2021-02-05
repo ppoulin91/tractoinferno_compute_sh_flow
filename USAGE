@@ -1,0 +1,52 @@
+TractoInferno Compute SH pipeline
+===================
+
+Run scil_compute_sh_on_signal pipeline
+
+
+USAGE
+
+nextflow run main.nf [OPTIONAL_ARGUMENTS] (--input)
+
+DESCRIPTION
+
+    --input=/path/to/[root]             Root folder containing multiple subjects
+
+                                        [root]
+                                        ├── S1
+                                        |   ├── *dwi.nii.gz
+                                        |   ├── *bval
+                                        |   └── *bvec
+                                        └── S2
+                                            ├── *dwi.nii.gz
+                                            ├── *bval
+                                            └── *bvec
+
+Files should be compressed Nifti files (.nii.gz)
+
+OPTIONAL ARGUMENTS (current value)
+
+
+--output_dir                                Directory where to write the final results.
+                                            By default, will be in "./results"
+
+--processes                                 The number of parallel processes to launch ($cpu_count).
+                                            Only affects the local scheduler.
+
+AVAILABLE PROFILES (using -profile option (e.g. -profile use_cuda,fully_reproducible))
+
+macos                                       When this profile is used, TractoFlow will modify a parameter (scratch) for MacOS users.
+
+
+NOTES
+
+The 'scilpy/scripts' folder should be in your PATH environment variable. Not necessary if the
+Singularity container is used.
+
+The intermediate working directory is, by default, set to './work'.
+To change it, use the '-w WORK_DIR' argument.
+
+The default config file is tractoflow/nextflow.config.
+Use '-C config_file.config' to specify a non-default configuration file.
+The '-C config_file.config' must be inserted after the nextflow call
+like 'nextflow -C config_file.config run ...'.
