@@ -83,7 +83,7 @@ process Compute_SH {
     cpus 1
 
     input:
-    set sid, file(dwi), file(bval), file(bvec) from in_data
+    set sid, file(bval), file(bvec), file(dwi) from in_data
 
     output:
     file "${sid}__dwi_sh.nii.gz"
