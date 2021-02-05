@@ -37,7 +37,7 @@ if (params.input){
     root = file(params.input)
     data = Channel
         .fromFilePairs("$root/**/*{bval,bvec,dwi.nii.gz}",
-                       size: 4,
+                       size: 3,
                        maxDepth:1,
                        flat: true) {it.parent.name}
     data.into{in_data; check_subjects_number}
