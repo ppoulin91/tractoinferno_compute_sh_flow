@@ -26,6 +26,12 @@ Files should be compressed Nifti files (.nii.gz)
 
 OPTIONAL ARGUMENTS (current value)
 
+--basis                                     SH basis used for the SH fitting [descoteaux07, tournier07] ($sh_fitting_basis).
+--sh_order                                  SH order used for the SH fitting; must be an even number ($sh_fitting_order).
+                                                Rules :-sh_order=8 for 45 directions
+                                                       -sh_order=6 for 28 directions
+--use_attenuation                           Divide signal by the b0 before fitting SH coefficients ($use_attenuation).
+
 
 --output_dir                                Directory where to write the final results.
                                             By default, will be in "./results"
